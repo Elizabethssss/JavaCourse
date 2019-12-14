@@ -1,4 +1,4 @@
-package model;
+package task1.model;
 
 public class Car extends Toys {
     public String color;

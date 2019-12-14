@@ -1,6 +1,6 @@
-package model;
+package task1.model;
 
-public class Barbie extends Toys{
+public class Barbie extends Toys {
     private String dressColor;
     private String hairColor;
 

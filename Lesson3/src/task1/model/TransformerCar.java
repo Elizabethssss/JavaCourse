@@ -1,6 +1,6 @@
-package model;
+package task1.model;
 
-public class TransformerCar extends Car {
+public class TransformerCar extends task1.model.Car {
     private int numOfStates;
 
     public int getNumOfStates() {

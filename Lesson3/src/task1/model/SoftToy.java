@@ -1,4 +1,4 @@
-package model;
+package task1.model;
 
 public class SoftToy extends Toys {
 
