@@ -4,6 +4,7 @@ import task1.model.*;
 import task1.view.View;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Controller {
     Shape[] shapes = {
@@ -26,9 +27,9 @@ public class Controller {
         View view = new View();
         view.print(shapes);
         view.printSum();
-        Arrays.sort(shapes, new AreaComparator());
+        Arrays.sort(shapes, (o1, o2) -> (int) (o1.calcArea() - o2.calcArea()));
         view.print(shapes);
-        Arrays.sort(shapes, new ColorComparator());
+        Arrays.sort(shapes, Comparator.comparing(Shape::getShapeColor));
         view.print(shapes);
     }
 

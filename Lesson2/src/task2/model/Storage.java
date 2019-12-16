@@ -1,10 +1,7 @@
 package task2.model;
 
-import task1.model.AreaComparator;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.Comparator;
 
 public class Storage {
     ArrayList<Book> books = new ArrayList<>();
@@ -63,6 +60,6 @@ public class Storage {
     }
 
     public void sortBooksByPublisher() {
-        books.sort(new PublisherComparator());
+        books.sort(Comparator.comparing(Book::getPublisher));
     }
 }
