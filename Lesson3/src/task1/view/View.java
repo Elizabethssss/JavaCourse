@@ -18,12 +18,12 @@ public class View {
         System.out.println("Choose command:\n1. Print\n" +
                 "2. Get sum of all toys\n" +
                 "3. Sort toys by parameter\n" +
-                "4. Sort toys by some parameters\n" +
+                "4. Filter toys by some parameters\n" +
                 "5. Exit");
     }
 
     public void sortMenu() {
-        System.out.println("Choose sorting:\nFor everyone (country, material, price)\n" +
+        System.out.println("Choose sorting/filtering:\nFor everyone (country, material, price)\n" +
                 "For cars (color)\n" +
                 "For barbies (dressColor, hairColor)\n" +
                 "For soft toys ()\n" +

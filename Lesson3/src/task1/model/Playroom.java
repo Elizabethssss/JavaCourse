@@ -6,6 +6,8 @@ import java.util.Comparator;
 public class Playroom {
     ArrayList<Toys> toys = new ArrayList<>();
     ArrayList<Toys> typeToys;
+    ArrayList<String> filter;
+    ArrayList<Toys> filteredToys;
 
     public Playroom() {
         toys.add(new Car("Ukraine", 899, "plastic", "blue"));
@@ -30,8 +32,102 @@ public class Playroom {
         return toys;
     }
 
+    public String getCountries() {
+        filter = new ArrayList<>();
+        for (Toys toy : toys) {
+            String temp = toy.getCountry();
+            if (!filter.contains(temp))
+                filter.add(temp);
+        }
+        return filter.toString();
+    }
+
+    public String getMaterials() {
+        filter = new ArrayList<>();
+        for (Toys toy : toys) {
+            String temp = toy.getMaterial();
+            if(!filter.contains(temp))
+                filter.add(temp);
+        }
+        return filter.toString();
+    }
+
+    public ArrayList<String> getPrices() {
+        filter = new ArrayList<>();
+        toys.sort(Comparator.comparing(Toys::getPrice));
+        for (Toys toy : toys) {
+            String temp = String.valueOf(toy.getPrice());
+            if(!filter.contains(temp)) {
+                filter.add(temp);
+            }
+        }
+        return filter;
+    }
+
+    public String getColors() {
+        filter = new ArrayList<>();
+        for (Toys toy : toys)
+            if(toy instanceof Car && !filter.contains(((Car)toy).getColor()))
+                filter.add(((Car)toy).getColor());
+        return filter.toString();
+    }
+
+    public String getDressColors() {
+        filter = new ArrayList<>();
+        for (Toys toy : toys) {
+            if (toy instanceof Barbie) {
+                String temp = ((Barbie) toy).getDressColor();
+                if (!filter.contains(temp))
+                    filter.add(temp);
+            }
+        }
+        return filter.toString();
+    }
+
+    public String getHairColors() {
+        filter = new ArrayList<>();
+        for (Toys toy : toys) {
+            if (toy instanceof Barbie) {
+                String temp = ((Barbie) toy).getHairColor();
+                if (!filter.contains(temp))
+                    filter.add(temp);
+            }
+        }
+        return filter.toString();
+    }
+
+    public ArrayList<String> getNumOfElements() {
+        filter = new ArrayList<>();
+        for (Toys toy : toys) {
+            if (toy instanceof Constructor) {
+                String temp = String.valueOf(((Constructor) toy).getNumOfElements());
+                if (!filter.contains(temp))
+                    filter.add(temp);
+            }
+        }
+        filter.sort(Comparator.naturalOrder());
+        return filter;
+    }
+
+    public ArrayList<String> getNumOfStates() {
+        filter = new ArrayList<>();
+        for (Toys toy : toys) {
+            if (toy instanceof TransformerCar) {
+                String temp = String.valueOf(((TransformerCar) toy).getNumOfStates());
+                if (!filter.contains(temp))
+                    filter.add(temp);
+            }
+        }
+        filter.sort(Comparator.naturalOrder());
+        return filter;
+    }
+
     public ArrayList<Toys> getTypeToys() {
         return typeToys;
+    }
+
+    public ArrayList<Toys> getFilteredToys() {
+        return filteredToys;
     }
 
     public double getAllSum() {
@@ -83,6 +179,55 @@ public class Playroom {
                         typeToys.add(toy);
                 typeToys.sort(Comparator.comparing(o -> ((Car) o).getColor()));
                 break;
+        }
+    }
+
+    public void filterBy(String[] parameters) {
+        filteredToys = new ArrayList<>();
+        typeToys = new ArrayList<>();
+        int from, to;
+        String temp;
+        String[] t;
+
+        filteredToys.addAll(toys);
+        typeToys.addAll(toys);
+
+        for (String str : parameters) {
+            for (Toys toy : typeToys) {
+                temp = str;
+                if(str.startsWith("prices ")) {
+                    temp = temp.substring(7);
+                    t = temp.split(" - ");
+                    from = Integer.parseInt(t[0]);
+                    to = Integer.parseInt(t[1]);
+                    if(toy.getPrice() < from || toy.getPrice() > to)
+                        filteredToys.remove(toy);
+                }
+                else if(str.startsWith("elements ")) {
+                    temp = temp.substring(9);
+                    t = temp.split(" - ");
+                    from = Integer.parseInt(t[0]);
+                    to = Integer.parseInt(t[1]);
+                    if(toy instanceof Constructor &&
+                            (((Constructor) toy).getNumOfElements() < from ||
+                            ((Constructor) toy).getNumOfElements() > to))
+                        filteredToys.remove(toy);
+                }
+                else if(str.startsWith("states ")) {
+                    temp = temp.substring(7);
+                    t = temp.split(" - ");
+                    from = Integer.parseInt(t[0]);
+                    to = Integer.parseInt(t[1]);
+                    if(toy instanceof TransformerCar &&
+                            (((TransformerCar) toy).getNumOfStates() < from ||
+                            ((TransformerCar) toy).getNumOfStates() > to))
+                        filteredToys.remove(toy);
+                }
+                else if(!toy.toString().contains(str))
+                    filteredToys.remove(toy);
+            }
+            typeToys = new ArrayList<>();
+            typeToys.addAll(filteredToys);
         }
     }
 }

@@ -3,6 +3,7 @@ package task1.controller;
 import task1.model.Playroom;
 import task1.view.View;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Controller {
@@ -13,20 +14,20 @@ public class Controller {
 
     public void process() {
         while (command != 5) {
-            command = checkIntInput(5);
+            command = checkIntInput();
             processMenu(command);
         }
     }
 
-    private int checkIntInput(int n) {
+    private int checkIntInput() {
         String in = null;
-        int num = 0;
+        int num;
         while(in == null) {
             view.menu();
             in = scanner.nextLine();
             try {
                 num = Integer.parseInt(in);
-                if(num < 1 || num > n) throw new Exception();
+                if(num < 1 || num > 5) throw new Exception();
                 return num;
             }
             catch (Exception e) {
@@ -34,7 +35,7 @@ public class Controller {
                 in = null;
             }
         }
-        return n;
+        return 5;
     }
 
     private void processMenu(int num) {
@@ -49,7 +50,7 @@ public class Controller {
                 processSorting();
                 break;
             case 4:
-
+                processFiltering();
                 break;
             case 5:
                 break;
@@ -76,4 +77,44 @@ public class Controller {
             else view.printWrongInput();
         }
     }
+
+    private void processFiltering() {
+        String inp = "";
+        String[] parameters;
+        while (!inp.equals("exit")) {
+            filterMenu();
+            view.printMessage("Enter values (write them with ', '): ");
+            inp = scanner.nextLine();
+            parameters = inp.split(", ");
+
+            playroom.filterBy(parameters);
+            if(playroom.getFilteredToys().size() == 0)
+                view.printMessage("\u001B[31mSorry no such elements(((\u001B[0m\n");
+            else if(inp.equals("exit"))
+                break;
+            else
+                view.print(playroom.getFilteredToys());
+        }
+    }
+
+    private void filterMenu() {
+        ArrayList<String> temp;
+        view.printMessage("Choose parameters: ");
+        view.printMessage("Countries: " + playroom.getCountries());
+        view.printMessage("Materials: " + playroom.getMaterials());
+        temp = playroom.getPrices();
+        view.printMessage("Prices: " + temp.get(0) + " - " +
+                temp.get(temp.size() - 1) + " (write 'prices x - xx')");
+        view.printMessage("Colors: " + playroom.getColors());
+        view.printMessage("Hair colors: " + playroom.getHairColors());
+        view.printMessage("Dress colors: " + playroom.getDressColors());
+        temp = playroom.getNumOfElements();
+        view.printMessage("Number of elements: " + temp.get(0) + " - " +
+                temp.get(temp.size() - 1) + " (write 'elements x - xx')");
+        temp = playroom.getNumOfStates();
+        view.printMessage("Number of states: " + temp.get(0) + " - " +
+                temp.get(temp.size() - 1) + " (write 'states x - xx')");
+        view.printMessage("If you want to finish type \"exit\"");
+    }
+
 }
