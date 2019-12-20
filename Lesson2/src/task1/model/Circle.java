@@ -22,4 +22,10 @@ public class Circle extends Shape {
     public String draw() {
         return this.toString();
     }
+
+    public static Shape parseShape(String input) {
+        String[] tokens = input.split(", ");
+        return new Circle(tokens[0], Double.parseDouble(tokens[1]));
+    }
+
 }

@@ -23,4 +23,10 @@ public class Rectangle extends Shape {
     public String draw() {
         return this.toString();
     }
+
+    public static Shape parseShape(String input) {
+        String[] tokens = input.split(", ");
+        return new Rectangle(tokens[0], Double.parseDouble(tokens[1]),
+                Double.parseDouble(tokens[2]));
+    }
 }
