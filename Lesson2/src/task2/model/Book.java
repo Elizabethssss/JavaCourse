@@ -6,14 +6,16 @@ public class Book {
     private String name;
     private String author;
     private String publisher;
+    private Genres genre;
     private int year;
     private int numOfPages;
     private double price;
 
-    public Book(String name, String author, String publisher, int year, int numOfPages, double price) {
+    public Book(String name, String author, String publisher, Genres genre, int year, int numOfPages, double price) {
         this.name = name;
         this.author = author;
         this.publisher = publisher;
+        this.genre = genre;
         this.year = year;
         this.numOfPages = numOfPages;
         this.price = price;
@@ -25,6 +27,7 @@ public class Book {
                 "name='" + name + '\'' +
                 ", author='" + author + '\'' +
                 ", publisher='" + publisher + '\'' +
+                ", genre='" + genre + '\'' +
                 ", year=" + year +
                 ", numOfPages=" + numOfPages +
                 ", price=" + price +
