@@ -1,6 +1,8 @@
 package task1.controller;
 
+import task1.model.*;
 import task1.model.Playroom;
+import task1.model.Toys;
 import task1.view.View;
 
 import java.util.ArrayList;
@@ -8,26 +10,29 @@ import java.util.Scanner;
 
 public class Controller {
     View view = new View();
-    Playroom playroom = new Playroom();
+    Playroom<? extends Toys> playroom = new Playroom();
     Scanner scanner = new Scanner(System.in);
     int command = 0;
 
     public void process() {
-        while (command != 5) {
-            command = checkIntInput();
+        while (command != 6) {
+            command = checkIntInput("menu");
             processMenu(command);
         }
     }
 
-    private int checkIntInput() {
+    private int checkIntInput(String str) {
         String in = null;
         int num;
         while(in == null) {
-            view.menu();
+            if(str.equals("menu"))
+                view.menu();
+            else if(str.equals("adding"))
+                view.chooseToy();
             in = scanner.nextLine();
             try {
                 num = Integer.parseInt(in);
-                if(num < 1 || num > 5) throw new Exception();
+                if(num < 1 || num > 6) throw new Exception();
                 return num;
             }
             catch (Exception e) {
@@ -35,7 +40,7 @@ public class Controller {
                 in = null;
             }
         }
-        return 5;
+        return 6;
     }
 
     private void processMenu(int num) {
@@ -53,6 +58,9 @@ public class Controller {
                 processFiltering();
                 break;
             case 5:
+                processAdding();
+                break;
+            case 6:
                 break;
             default:
                 view.printWrongInput();
@@ -95,6 +103,65 @@ public class Controller {
             else
                 view.print(playroom.getFilteredToys());
         }
+    }
+
+    private void processAdding() {
+        int num = 0;
+        while (num != 6) {
+            num = checkIntInput("adding");
+            processAdding(num);
+        }
+    }
+
+    private void processAdding(int num) {
+        String[] temp;
+        try {
+            switch (num) {
+                case 1:
+                    view.addCar();
+                    temp = addingToys();
+                    playroom.addToy(new Car(temp[0], Integer.parseInt(temp[1]), temp[2], temp[3]));
+                    break;
+                case 2:
+                    view.addBarbie();
+                    temp = addingToys();
+                    playroom.addToy(new Barbie(temp[0], Integer.parseInt(temp[1]), temp[2], temp[3], temp[4]));
+                    break;
+                case 3:
+                    view.addSoftToy();
+                    temp = addingToys();
+                    playroom.addToy(new SoftToy(temp[0], Integer.parseInt(temp[1]), temp[2]));
+                    break;
+                case 4:
+                    view.addConstructor();
+                    temp = addingToys();
+                    playroom.addToy(new Constructor(temp[0], Integer.parseInt(temp[1]), temp[2], Integer.parseInt(temp[3])));
+                    break;
+                case 5:
+                    view.addTransformerCar();
+                    temp = addingToys();
+                    playroom.addToy(new TransformerCar(temp[0], Integer.parseInt(temp[1]), temp[2], temp[3],
+                            Integer.parseInt(temp[4])));
+                    break;
+                case 6:
+                    break;
+                default:
+                    view.printWrongInput();
+            }
+        }
+        catch (Exception e) {
+            view.printWrongInput();
+            processAdding(num);
+        }
+    }
+
+    private String[] addingToys() {
+        String inp;
+        String[] parameters;
+        inp = scanner.nextLine();
+        parameters = inp.split(", ");
+
+        return parameters;
     }
 
     private void filterMenu() {

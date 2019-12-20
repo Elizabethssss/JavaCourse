@@ -3,7 +3,7 @@ package task1.model;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public class Playroom {
+public class Playroom<T extends Toys> {
     ArrayList<Toys> toys = new ArrayList<>();
     ArrayList<Toys> typeToys;
     ArrayList<String> filter;
@@ -28,8 +28,16 @@ public class Playroom {
         toys.add(new TransformerCar("America", 1099, "metal", "black", 4));
     }
 
-    public ArrayList<Toys> getToys() {
+    public ArrayList<? extends Toys> getToys() {
         return toys;
+    }
+
+    public ArrayList<? extends Toys> getTypeToys() {
+        return typeToys;
+    }
+
+    public ArrayList<? extends Toys> getFilteredToys() {
+        return filteredToys;
     }
 
     public String getCountries() {
@@ -122,12 +130,8 @@ public class Playroom {
         return filter;
     }
 
-    public ArrayList<Toys> getTypeToys() {
-        return typeToys;
-    }
-
-    public ArrayList<Toys> getFilteredToys() {
-        return filteredToys;
+    public void addToy(Toys toy){
+        toys.add(toy);
     }
 
     public double getAllSum() {
