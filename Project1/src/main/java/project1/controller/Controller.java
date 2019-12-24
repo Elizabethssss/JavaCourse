@@ -1,8 +1,7 @@
 package project1.controller;
 
-import project1.model.AmmoStorage;
-import project1.model.Knight;
-import project1.model.ammunition.Ammunition;
+import project1.model.*;
+import project1.model.ammunition.*;
 import project1.view.View;
 
 import java.util.ArrayList;

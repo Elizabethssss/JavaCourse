@@ -13,6 +13,8 @@ public class Knight {
         this.kit = kit;
     }
 
+    public Knight() {this.kit = new ArrayList<>(); }
+
     public ArrayList<Ammunition> getKit() {
         return kit;
     }

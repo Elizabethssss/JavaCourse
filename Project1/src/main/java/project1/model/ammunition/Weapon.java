@@ -1,6 +1,6 @@
 package project1.model.ammunition;
 
-public class Weapon extends Ammunition{
+public class Weapon extends Ammunition {
     private int damage;
 
     public int getDamage() {
