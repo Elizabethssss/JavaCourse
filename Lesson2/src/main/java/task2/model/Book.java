@@ -11,6 +11,7 @@ public class Book {
     private int numOfPages;
     private double price;
 
+    public Book() {}
     public Book(String name, String author, String publisher, Genres genre, int year, int numOfPages, double price) {
         this.name = name;
         this.author = author;
@@ -25,12 +26,12 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                ", publisher='" + publisher + '\'' +
-                ", genre='" + genre + '\'' +
-                ", year=" + year +
-                ", numOfPages=" + numOfPages +
-                ", price=" + price +
+                "; author='" + author + '\'' +
+                "; publisher='" + publisher + '\'' +
+                "; genre='" + genre + '\'' +
+                "; year=" + year +
+                "; numOfPages=" + numOfPages +
+                "; price=" + price +
                 '}';
     }
 
@@ -80,5 +81,13 @@ public class Book {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public Genres getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genres genre) {
+        this.genre = genre;
     }
 }

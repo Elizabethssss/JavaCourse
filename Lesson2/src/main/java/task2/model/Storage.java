@@ -35,6 +35,14 @@ public class Storage {
         return books;
     }
 
+    public void setBooks(ArrayList<Book> books) {
+        this.books = books;
+    }
+
+    public void clearAllBooks() {
+        books.clear();
+    }
+
     public ArrayList<Book> booksByAuthor(String author) {
         ArrayList<Book> result = new ArrayList<>();
         for(Book book : books)

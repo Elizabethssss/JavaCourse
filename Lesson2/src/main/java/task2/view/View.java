@@ -12,15 +12,21 @@ public class View {
                 "3. Get list of books by publisher\n" +
                 "4. Get list of books published after given year\n" +
                 "5. Sort books by publishers\n" +
-                "6. Exit");
+                "6. Save to file\n" +
+                "7. Exit");
+    }
+
+    public void enterMenu() {
+        System.out.println("Choose source:\n1. From file\n" +
+                "2. From data base");
     }
 
     public void printWrongInput() {
-        System.out.println("Wrong command!!!");
+        System.out.println("Wrong input!!!\n");
     }
 
-    public void askForValue() {
-        System.out.print("Enter value: ");
+    public void printMessage(String message) {
+        System.out.print(message);
     }
 
     public void printNoResult() {
@@ -32,5 +38,6 @@ public class View {
             System.out.println(book.toString());
         }
         System.out.println();
+
     }
 }

@@ -1,0 +1,5 @@
+Book{name='Harry Potter and the Deathly Hallows'; author='J. K. Rowling'; publisher='Bloomsbury Press'; genre='FANTASY'; year=2007; numOfPages=759; price=29.67}
+Book{name='Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future'; author='Ashlee Vance'; publisher='HarperCollins'; genre='BIOGRAPHY'; year=2015; numOfPages=416; price=10.99}
+Book{name='Steve Jobs: The Man Who Thought Different: A Biography'; author='Karen Blumenthal'; publisher='Square Fish'; genre='BIOGRAPHY'; year=2012; numOfPages=320; price=7.99}
+Book{name='Maybe You Should Talk to Someone'; author='Lori Gottlieb'; publisher='Houghton Mifflin Harcourt'; genre='PSYCHOLOGY'; year=2019; numOfPages=432; price=13.99}
+
