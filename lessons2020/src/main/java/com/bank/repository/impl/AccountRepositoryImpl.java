@@ -1,0 +1,67 @@
+package com.bank.repository.impl;
+
+import com.bank.domain.Account;
+import com.bank.domain.User;
+import com.bank.repository.AccountRepository;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class AccountRepositoryImpl implements AccountRepository {
+    private final Map<Integer, Account> map = new HashMap<>();
+    Account account;
+    User user;
+
+    //
+    @Override
+    public void save(Account entity) {
+        map.put(entity.getId(), entity);
+    }
+
+    @Override
+    public Account findById(Integer id) {
+        return map.get(id);
+    }
+
+    @Override
+    public List<Account> findAll() {
+        List<Account> result = new ArrayList<>();
+        map.forEach((k, v) -> result.add(v));
+        return result;
+    }
+
+    @Override
+    public void update(Account entity) {
+        map.replace(entity.getId(), entity);
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        map.remove(id);
+    }
+
+    public AccountRepositoryImpl() {
+        this.user = User.builder()
+                .withId(2)
+                .withEmail("email@gmail")
+                .withPassword("pass")
+                .withAccounts(null)
+                .build();
+        this.account = new Account(1, this.user, 12345);
+        map.put(account.getId(), account);
+    }
+
+    public Map<Integer, Account> getMap() {
+        return map;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public User getUser() {
+        return user;
+    }
+}
