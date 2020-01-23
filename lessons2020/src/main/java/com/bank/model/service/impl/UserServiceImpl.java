@@ -1,13 +1,13 @@
-package com.bank.service.impl;
+package com.bank.model.service.impl;
 
-import com.bank.domain.User;
-import com.bank.exception.ValidatorException;
-import com.bank.repository.Page;
-import com.bank.repository.UserRepository;
-import com.bank.repository.impl.Pageable;
-import com.bank.service.PasswordEncriptor;
-import com.bank.service.UserService;
-import com.bank.validator.Validator;
+import com.bank.model.domain.User;
+import com.bank.model.exception.ValidatorException;
+import com.bank.model.repository.Page;
+import com.bank.model.repository.UserRepository;
+import com.bank.model.repository.impl.Pageable;
+import com.bank.model.service.PasswordEncriptor;
+import com.bank.model.service.UserService;
+import com.bank.model.validator.Validator;
 
 import java.util.List;
 

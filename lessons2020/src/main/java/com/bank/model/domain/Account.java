@@ -1,4 +1,4 @@
-package com.bank.domain;
+package com.bank.model.domain;
 
 public class Account {
     private final Integer id;

@@ -1,7 +1,7 @@
-package com.bank.validator;
+package com.bank.model.validator;
 
-import com.bank.domain.User;
-import com.bank.exception.ValidatorException;
+import com.bank.model.domain.User;
+import com.bank.model.exception.ValidatorException;
 
 import java.util.function.Function;
 import java.util.regex.Pattern;

@@ -1,8 +1,8 @@
-package com.bank.repository.impl;
+package com.bank.model.repository.impl;
 
-import com.bank.domain.User;
-import com.bank.repository.Page;
-import com.bank.repository.UserRepository;
+import com.bank.model.domain.User;
+import com.bank.model.repository.Page;
+import com.bank.model.repository.UserRepository;
 
 import java.util.*;
 

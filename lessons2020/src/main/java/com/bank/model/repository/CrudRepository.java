@@ -1,6 +1,6 @@
-package com.bank.repository;
+package com.bank.model.repository;
 
-import com.bank.repository.impl.Pageable;
+import com.bank.model.repository.impl.Pageable;
 
 import java.util.List;
 

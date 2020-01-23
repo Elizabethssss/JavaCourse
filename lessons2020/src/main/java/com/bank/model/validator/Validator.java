@@ -1,6 +1,6 @@
-package com.bank.validator;
+package com.bank.model.validator;
 
-import com.bank.exception.ValidatorException;
+import com.bank.model.exception.ValidatorException;
 
 public interface Validator<E> {
     void validate(E entity) throws ValidatorException;

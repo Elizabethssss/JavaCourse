@@ -1,6 +1,6 @@
-package com.bank.repository;
+package com.bank.model.repository;
 
-import com.bank.domain.User;
+import com.bank.model.domain.User;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package com.bank.utility;
+package com.bank.model.utility;
 
 import java.util.List;
 

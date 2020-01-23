@@ -1,6 +1,6 @@
-package com.bank.repository;
+package com.bank.model.repository;
 
-import com.bank.domain.Account;
+import com.bank.model.domain.Account;
 
 public interface AccountRepository extends CrudRepository<Account> {
 }

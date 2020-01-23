@@ -1,4 +1,4 @@
-package com.bank.service;
+package com.bank.model.service;
 
 import static org.mindrot.jbcrypt.BCrypt.checkpw;
 import static org.mindrot.jbcrypt.BCrypt.gensalt;

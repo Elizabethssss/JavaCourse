@@ -1,13 +1,13 @@
-package com.bank.injector;
+package com.bank.model.injector;
 
-import com.bank.domain.User;
-import com.bank.repository.UserRepository;
-import com.bank.repository.impl.UserRepositoryImpl;
-import com.bank.service.PasswordEncriptor;
-import com.bank.service.UserService;
-import com.bank.service.impl.UserServiceImpl;
-import com.bank.validator.UserValidator;
-import com.bank.validator.Validator;
+import com.bank.model.domain.User;
+import com.bank.model.repository.UserRepository;
+import com.bank.model.repository.impl.UserRepositoryImpl;
+import com.bank.model.service.PasswordEncriptor;
+import com.bank.model.service.UserService;
+import com.bank.model.service.impl.UserServiceImpl;
+import com.bank.model.validator.UserValidator;
+import com.bank.model.validator.Validator;
 
 public class ApplicationInjector {
 

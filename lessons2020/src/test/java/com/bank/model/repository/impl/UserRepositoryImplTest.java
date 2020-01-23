@@ -1,7 +1,6 @@
-package com.bank.repository.impl;
+package com.bank.model.repository.impl;
 
-import com.bank.domain.User;
-import com.bank.repository.UserRepository;
+import com.bank.model.domain.User;
 import org.junit.Test;
 import org.junit.Before;
 
@@ -47,11 +46,6 @@ public class UserRepositoryImplTest {
     @Test
     public void findByStrangeId() {
         assertNull(repository.findById(13456));
-    }
-
-    @Test
-    public void findAll() {
-        assertNotNull(repository.findAll());
     }
 
     @Test

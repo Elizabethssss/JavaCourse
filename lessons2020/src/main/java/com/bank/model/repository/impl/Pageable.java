@@ -1,4 +1,4 @@
-package com.bank.repository.impl;
+package com.bank.model.repository.impl;
 
 import java.util.List;
 

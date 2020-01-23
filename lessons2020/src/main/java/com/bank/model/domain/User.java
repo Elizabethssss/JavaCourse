@@ -1,9 +1,9 @@
-package com.bank.domain;
+package com.bank.model.domain;
 
 import java.util.List;
 import java.util.Objects;
 
-import static com.bank.utility.CollectionUtility.nullSafeListInitialize;
+import static com.bank.model.utility.CollectionUtility.nullSafeListInitialize;
 
 public class User {
     private final Integer id;

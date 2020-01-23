@@ -1,4 +1,4 @@
-package com.bank.repository;
+package com.bank.model.repository;
 
 public class Page {
     private final int pageNumber;

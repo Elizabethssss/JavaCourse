@@ -1,6 +1,6 @@
-package com.bank.service;
+package com.bank.model.service;
 
-import com.bank.domain.User;
+import com.bank.model.domain.User;
 
 import java.util.List;
 
