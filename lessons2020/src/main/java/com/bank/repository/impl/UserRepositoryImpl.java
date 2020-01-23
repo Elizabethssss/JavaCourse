@@ -1,12 +1,10 @@
 package com.bank.repository.impl;
 
 import com.bank.domain.User;
+import com.bank.repository.Page;
 import com.bank.repository.UserRepository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class UserRepositoryImpl implements UserRepository {
     private final Map<Integer, User> userIdToUser = new HashMap<>();
@@ -19,13 +17,13 @@ public class UserRepositoryImpl implements UserRepository {
 
 
     @Override
-    public User findByEmail(String email) {
+    public Optional<User> findByEmail(String email) {
         for (Map.Entry<Integer, User> integerUserEntry : userIdToUser.entrySet()) {
             User temp = integerUserEntry.getValue();
             if (temp.getEmail().equals(email))
-                return temp;
+                return Optional.of(temp);
         }
-        return null;
+        return Optional.empty();
     }
 
     @Override
@@ -40,10 +38,13 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public List<User> findAll() {
-        List<User> result = new ArrayList<>();
-        userIdToUser.forEach((k, v) -> result.add(v));
-        return result;
+    public List<User> findAll(int page, int itemsPerPage) {
+        return null;
+    }
+
+    @Override
+    public Pageable<User> findAll(Page page) {
+        return null;
     }
 
     @Override

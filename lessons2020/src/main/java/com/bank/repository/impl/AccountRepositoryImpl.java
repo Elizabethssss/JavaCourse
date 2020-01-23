@@ -3,6 +3,7 @@ package com.bank.repository.impl;
 import com.bank.domain.Account;
 import com.bank.domain.User;
 import com.bank.repository.AccountRepository;
+import com.bank.repository.Page;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,10 +27,13 @@ public class AccountRepositoryImpl implements AccountRepository {
     }
 
     @Override
-    public List<Account> findAll() {
-        List<Account> result = new ArrayList<>();
-        map.forEach((k, v) -> result.add(v));
-        return result;
+    public List<Account> findAll(int page, int itemsPerPage) {
+        return null;
+    }
+
+    @Override
+    public Pageable<Account> findAll(Page page) {
+        return null;
     }
 
     @Override

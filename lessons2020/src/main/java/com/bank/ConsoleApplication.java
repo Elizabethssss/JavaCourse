@@ -1,16 +1,23 @@
 package com.bank;
 
-import com.bank.domain.User;
+import com.bank.injector.ApplicationInjector;
+import com.bank.service.UserService;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class ConsoleApplication {
-    public static void main(String[] args) {
-//        final User user = new User(1, "email@gmail.com", "password", null);
+    public static void main(String[] args) throws Exception {
+        ApplicationInjector injector = ApplicationInjector.getInstance();
+        final UserService userService = injector.getUserService();
+        final boolean password = userService.login("alex@gmail.com", "password");
+        System.out.println(password);
 
-        final User user1 = User.builder()
-                .withId(1)
-                .withEmail("email@gmail.com")
-                .withPassword("password")
-                .withAccounts(null)
-                .build();
+        List<String> list = Arrays.asList("one", "three", "five", "123456789");
+        final Integer integer = list.stream()
+                .map(String::length)
+                .max(Integer::compareTo)
+                .orElse(0);
+        System.out.println(integer);
     }
 }
