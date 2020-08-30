@@ -1,5 +1,5 @@
-# EpamJavaCourse
-This repository contains my homework from Epam Java Winter Courses.
+# EJavaCourse
+This repository contains my homework from Java Winter Courses.
 # Lesson 1
 [**Task 1**](https://github.com/Elizabethssss/EpamJavaCourse/tree/master/Lesson1/src/task1) - console application that defines a positive integer number in the decimal number system, and then converts the number into binary/ternary/octal/hexadecimal number systems and prints the result.
 
